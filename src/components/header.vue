@@ -3,8 +3,8 @@
     <h3 class='pure-u-1-4'></h3>
     <h3 class='pure-u-1-2'>LOGO HERE</h3>
     <div class='pure-u-1-4'>
-      <button>Share a success story</button>
-      <button>Ask a financial wellness question</button>
+      <button class='pure-button'>Share a success story</button>
+      <button class='pure-button'>Ask a financial wellness question</button>
     </div>
   </div>
 </template>
@@ -17,5 +17,11 @@ export default {
 <style>
   .header {
     background-color: rgb(255, 255, 255)
+  }
+
+  .pure-button {
+    border-radius: 25px;
+    margin-bottom: .25em;
+    color: purple;
   }
 </style>

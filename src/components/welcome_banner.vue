@@ -1,13 +1,13 @@
 <template>
   <div class='pure-g banner'>
-    <h1 class='text-center pure-u-1'>This is the body</h1>
-    <div class='pure-u-3-5'>
+    <div class='pure-u-1-24'></div>
+    <div class='pure-u-15-24'>
       <h3>Hi Michael, welcome back!</h3>
       <p>How can we help you improve your financial wellness?</p>
       <br/>
       <p>STAY CONNECTED</p>
     </div>
-    <div class='pure-u-2-5'>
+    <div class='pure-u-8-24'>
       <p>A valuable benefit</p>
       <p>Provided Courtesy of</p>
       <h1>LOGO HERE</h1>

@@ -26,6 +26,10 @@
     text-align: center;
   }
 
+  .button-xsmall {
+    font-size: 70%;
+  }
+
   body {
     background-color: rgb(243, 243, 243);
   }

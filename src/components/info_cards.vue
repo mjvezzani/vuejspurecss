@@ -14,10 +14,10 @@ export default {
   data() {
     return {
       cards: [
-        { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button>Subscribe!</button>' },
-        { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button>Purchase!</button>' },
-        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button>Click for chance to win!</button>' },
-        { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button>Click in Emergency Only</button>' },
+        { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall">Subscribe!</button>' },
+        { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button class="pure-button button-xsmall">Purchase!</button>' },
+        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall">Click for chance to win!</button>' },
+        { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button">Click in Emergency Only</button>' },
       ],
     };
   },
