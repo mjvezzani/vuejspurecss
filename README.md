@@ -12,7 +12,8 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build
+cd /var/www/html/Vue; npm run build; ln -s ../src /var/www/html/Vue/dist/src
+# TODO: improve deployment process
 
 # build for production and view the bundle analyzer report
 npm run build --report
