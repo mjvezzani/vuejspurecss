@@ -7,18 +7,14 @@
 </template>
 
 <script>
-  import Header from './components/header';
-  import WelcomeBanner from './components/welcome_banner';
-  import InfoCards from './components/info_cards';
+import Header from './components/header';
+import WelcomeBanner from './components/welcome_banner';
+import InfoCards from './components/info_cards';
 
-  export default {
-    name: 'app',
-    components: {
-      Header,
-      WelcomeBanner,
-      InfoCards,
-    },
-  };
+export default {
+  name: 'app',
+  components: { Header, WelcomeBanner, InfoCards }
+}
 </script>
 
 <style>
@@ -64,3 +60,4 @@
     border: 1px solid rgb(30, 177, 237);
   }
 </style>
+
