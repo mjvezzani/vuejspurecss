@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ul class='pure-g neg-y'>
+   <ul class='pure-g neg-y'>
       <li v-for="card in cards" class='pure-u-md-1-3 pure-u-sm-1-2 pure-u-1-1'>
-        <SingleCard card=card></SingleCard>
+        <SingleCard :markup=card></SingleCard>
       </li>
     </ul>
   </div>
@@ -18,20 +18,16 @@
     data() {
       return {
         cards: [
-          { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
-          { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Purchase!</button>' },
-          { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-          { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-          { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-          { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
-          { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-          { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Purchase!</button>' },
-          { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-          { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-          { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-          { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
+          { html: `<h3>Buy Me!!</h3>
+                   <p>Some lorem ipsum</p>
+                   <button id="show-modal" @click="showModal = true"
+                           class="pure-button button-xsmall button-dark-blue">
+                     Subscribe!
+                   </button>
+                   <modal v-if="showModal" @close="showModal = false"></modal>`,
+            title: 'Buy Me!!',
+            description: 'Some Lorem Ipsum' },
         ],
-        showModal: false,
       };
     },
   };
