@@ -23,6 +23,8 @@
       <p class='thin-text'>A valuable benefit</p>
       <p class='thin-text'>Provided Courtesy of</p>
       <img class='pure-img background-white' src='../assets/transunion-logo.png' align='right'/>
+      <button class=' pure-u-1-1 pure-button button-dark'>Share a success story</button>
+      <button class=' pure-u-1-1 pure-button button-light'>Ask a financial wellness question</button>
     </div>
     <div class='pure-u-2-24'>
     </div>
