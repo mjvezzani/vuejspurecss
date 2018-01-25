@@ -18,15 +18,17 @@
     data() {
       return {
         cards: [
-          { html: `<h3>Buy Me!!</h3>
-                   <p>Some lorem ipsum</p>
-                   <button id="show-modal" @click="showModal = true"
-                           class="pure-button button-xsmall button-dark-blue">
-                     Subscribe!
-                   </button>
-                   <modal v-if="showModal" @close="showModal = false"></modal>`,
-            title: 'Buy Me!!',
-            description: 'Some Lorem Ipsum' },
+          { title: 'Buy Me!!',
+            description: "It's so good!",
+            buttonText: 'Buy!' },
+          { title: 'Watch Me!!',
+            description: 'A great video',
+            videoSource: 'https://www.youtube.com/embed/RUCN4Q3egmw',
+            buttonText: 'Watch!' },
+          { title: 'Go to there!!',
+            description: 'A great place to visit',
+            externalLink: 'https://www.youtube.com/embed/RUCN4Q3egmw',
+            buttonText: 'Go!' },
         ],
       };
     },

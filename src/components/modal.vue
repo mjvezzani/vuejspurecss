@@ -6,16 +6,38 @@
 
           <div class="modal-header">
             <slot name="header">
-              default header
+              {{ markup.title }}
             </slot>
           </div>
 
-          <div class="modal-body">
+          <div v-if="markup.videoSource" class="modal-body">
             <slot name="body">
-              default body
+              <iframe v-bind:src=markup.videoSource
+                            width="560"
+                            height="315"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+              </iframe>
             </slot>
           </div>
 
+          <div v-if="markup.externalLink" class="modal-body">
+            <slot name="body">
+              <h3>Wait!</h3>
+              <p>It looks like you are about to navigate away from Welfie.</p>
+              <p>
+                We are required to let you know that you are about to leave
+                the Welfie website and navigate to an external website. Click
+                ok if this is what you meant to do, cancel if you don't wish
+                to leave Welfie.
+               </p> 
+               <a v-bind:href=markup.externalLink>
+                 <button class="modal-default-button">Take me there!</button>
+               </a>
+            </slot>
+          </div>
+          
           <div class="modal-footer">
             <slot name="footer">
               default footer
@@ -31,7 +53,9 @@
 </template>
 
 <script>
-  export default{};
+  export default{
+    props: ['markup'],
+  };
 </script>
 
 <style>
