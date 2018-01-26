@@ -3,7 +3,6 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-
           <div class="modal-header">
             <slot name="header">
               {{ markup.title }}
@@ -19,33 +18,46 @@
                             allow="autoplay; encrypted-media"
                             allowfullscreen>
               </iframe>
-            </slot>
-          </div>
-
-          <div v-if="markup.externalLink" class="modal-body">
-            <slot name="body">
-              <h3>Wait!</h3>
-              <p>It looks like you are about to navigate away from Welfie.</p>
-              <p>
-                We are required to let you know that you are about to leave
-                the Welfie website and navigate to an external website. Click
-                ok if this is what you meant to do, cancel if you don't wish
-                to leave Welfie.
-               </p> 
-               <a v-bind:href=markup.externalLink>
-                 <button class="modal-default-button">Take me there!</button>
-               </a>
-            </slot>
-          </div>
-          
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
+              <button class="pure-u-1-1 pure-button
+                             button-xsmall button-light-blue"
+                            @click="$emit('close')">
+                      Close
               </button>
             </slot>
           </div>
+
+          <div v-else-if="markup.externalLink">
+            <div v-if="markup.externalLink" class="modal-body">
+              <slot name="body">
+                <h3>Wait!</h3>
+                <p>It looks like you are about to navigate away from Welfie.</p>
+                <p>
+                  We are required to let you know that you are about to leave
+                  the Welfie website and navigate to an external website. Click
+                  ok if this is what you meant to do, cancel if you don't wish
+                  to leave Welfie.
+                </p> 
+                <div class='pure-g'>
+                  <a class='pure-u-md-1-2 pure-u-1-1 pure-button button-xsmall button-dark-blue' v-bind:href=markup.externalLink>
+                      Take me there!
+                  </a>
+                  <button class="pure-u-md-1-2 pure-u-1-1 pure-button button-xsmall button-light-blue"
+                          @click="$emit('close')">
+                    Close
+                  </button>
+                </div>
+              </slot>
+            </div>
+          </div>
+
+          <div v-else>
+            <button class="pure-u-1-1 pure-button
+                           button-xsmall button-light-blue"
+                          @click="$emit('close')">
+                    Close
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -60,7 +72,7 @@
 
 <style>
   .modal-mask {
-    position: fixed;
+    position: fixed !important;
     z-index: 9998;
     top: 0;
     left: 0;

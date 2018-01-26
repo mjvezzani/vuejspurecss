@@ -29,6 +29,10 @@
             description: 'A great place to visit',
             externalLink: 'https://www.youtube.com/embed/RUCN4Q3egmw',
             buttonText: 'Go!' },
+          { title: 'Read this!',
+            description: 'A great thing to read',
+            fileSource: '../../static/CandHTeaser.pdf',
+            buttonText: 'Go!' },
         ],
       };
     },
