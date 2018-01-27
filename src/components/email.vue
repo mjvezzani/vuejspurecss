@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+//  import axios from 'axios';
 
   export default{
     data() {
@@ -45,15 +45,15 @@
         this.$root.$emit('close');
       },
       sendMessage() {
-        axios.post('https://welfie.co/api/messages', {
-          name: this.name,
-          email: this.email,
-          content: this.message,
-        })
-        .then((resonse) => {})
-        .catch((e) => {
-          console.log(e);
-        });
+//        axios.post('https://welfie.co/api/messages', {
+//          name: this.name,
+//          email: this.email,
+//          content: this.message,
+//        })
+//        .then((resonse) => {})
+//        .catch((e) => {
+//          console.log(e);
+//        });
       },
     },
   };
