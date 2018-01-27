@@ -8,7 +8,7 @@ export default [
     type: 'video' },
   { title: 'WELFIE® BLOG',
     subtitle: 'Useful stuff, not fluff',
-    thumbnail: '../../static/blog.png',
+    thumbnail: '../../static/blog.jpg',
     buttonText: 'View All Posts',
     type: 'blog' },
   { title: 'WELFIE® SCORE',
