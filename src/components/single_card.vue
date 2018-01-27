@@ -31,15 +31,15 @@
 </template>
 
 <script>
-  import AdviceCard from './advice_card';
-  import BasicsCard from './basics_card';
-  import BlogCard from './blog_card';
-  import CoachingCard from './coaching_card';
-  import GoldCard from './gold_card';
-  import InvestCard from './invest_card';
-  import OrganizeCard from './organize_card';
-  import ScoreCard from './score_card';
-  import VideoCard from './video_card';
+  import AdviceCard from './cards/advice_card';
+  import BasicsCard from './cards/basics_card';
+  import BlogCard from './cards/blog_card';
+  import CoachingCard from './cards/coaching_card';
+  import GoldCard from './cards/gold_card';
+  import InvestCard from './cards/invest_card';
+  import OrganizeCard from './cards/organize_card';
+  import ScoreCard from './cards/score_card';
+  import VideoCard from './cards/video_card';
 
   export default {
     props: ['markup'],

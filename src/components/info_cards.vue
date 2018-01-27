@@ -12,7 +12,7 @@
 <script>
   import SingleCard from './single_card';
   import Modal from './modal';
-  import SeedData from './seed_data';
+  import SeedData from './data/seed_data';
 
   export default {
     components: {

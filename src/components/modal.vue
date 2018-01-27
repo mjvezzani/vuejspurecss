@@ -19,9 +19,9 @@
 </template>
 
 <script>
-  import Video from './video';
-  import ExternalLink from './external_link';
-  import Email from './email';
+  import Video from './modals/video';
+  import ExternalLink from './modals/external_link';
+  import Email from './modals/email';
 
   export default{
     props: ['markup'],
