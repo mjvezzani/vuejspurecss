@@ -24,6 +24,10 @@
         this.modalMarkup = markup;
         this.showModal = true;
       });
+      this.$root.$on('close', () => {
+        this.modalMarkup = '';
+        this.showModal = false;
+      });
     },
     data() {
       return {

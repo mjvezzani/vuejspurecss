@@ -2,62 +2,16 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">
-              {{ markup.title }}
-            </slot>
-          </div>
+        <div v-if="markup.type == 'video'" class="modal-container">
+          <Video :markup=markup></Video>
+        </div>
 
-          <div v-if="markup.videoSource" class="modal-body">
-            <slot name="body">
-              <iframe v-bind:src=markup.videoSource
-                            width="560"
-                            height="315"
-                            frameborder="0"
-                            allow="encrypted-media"
-                            allowfullscreen>
-              </iframe>
-              <button class="pure-u-1-1 pure-button
-                             button-xsmall button-light-blue"
-                            @click="$emit('close')">
-                      Close
-              </button>
-            </slot>
-          </div>
+        <div v-else-if="markup.type == 'externalLink'" class="modal-container">
+          <ExternalLink :markup=markup></ExternalLink>
+        </div>
 
-          <div v-else-if="markup.externalLink">
-            <div v-if="markup.externalLink" class="modal-body">
-              <slot name="body">
-                <h3>Wait!</h3>
-                <p>It looks like you are about to navigate away from Welfie.</p>
-                <p>
-                  We are required to let you know that you are about to leave
-                  the Welfie website and navigate to an external website. Click
-                  ok if this is what you meant to do, cancel if you don't wish
-                  to leave Welfie.
-                </p> 
-                <div class='pure-g'>
-                  <a class='pure-u-md-1-2 pure-u-1-1 pure-button button-xsmall button-dark-blue' v-bind:href=markup.externalLink>
-                      Take me there!
-                  </a>
-                  <button class="pure-u-md-1-2 pure-u-1-1 pure-button button-xsmall button-light-blue"
-                          @click="$emit('close')">
-                    Close
-                  </button>
-                </div>
-              </slot>
-            </div>
-          </div>
-
-          <div v-else>
-            <button class="pure-u-1-1 pure-button
-                           button-xsmall button-light-blue"
-                          @click="$emit('close')">
-                    Close
-            </button>
-          </div>
-
+        <div v-else-if="markup.type == 'email'" class="modal-container">
+          <Email :markup=markup></Email>
         </div>
       </div>
     </div>
@@ -65,8 +19,17 @@
 </template>
 
 <script>
+  import Video from './video';
+  import ExternalLink from './external_link';
+  import Email from './email';
+
   export default{
     props: ['markup'],
+    components: {
+      Video,
+      ExternalLink,
+      Email,
+    },
   };
 </script>
 
