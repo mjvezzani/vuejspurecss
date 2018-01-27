@@ -5,25 +5,20 @@
       <p>{{ markup.description }}</p>
       <a v-if="markup.fileSource" class="pure-button button-xsmall button-dark-blue" v-bind:href=markup.fileSource target="_blank">Read Me!</a>
       <button v-else id="show-modal"
-              @click="showModal = true"
+              v-on:click="openModal(markup)"
               class="pure-button button-xsmall button-dark-blue">{{ markup.buttonText }}</button>
     </div>
-    <modal :markup=markup v-if="showModal" @close="showModal = false"></modal>
   </div>
 </template>
 
 <script>
-  import Modal from './modal';
 
   export default {
     props: ['markup'],
-    components: {
-      Modal,
-    },
-    data() {
-      return {
-        showModal: false,
-      };
+    methods: {
+      openModal(markup) {
+        this.$root.$emit('open', markup);
+      },
     },
   };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div>
+   <modal :markup=modalMarkup v-if="showModal" v-on:close="showModal = false"></modal>
    <ul class='pure-g neg-y'>
       <li v-for="card in cards" class='pure-u-md-1-3 pure-u-sm-1-2 pure-u-1-1'>
         <SingleCard :markup=card></SingleCard>
@@ -10,10 +11,19 @@
 
 <script>
   import SingleCard from './single_card';
+  import Modal from './modal';
 
   export default {
     components: {
       SingleCard,
+      Modal,
+    },
+    created() {
+      this.$root.$on('open', (markup) => {
+        this.modalMarkup = markup;
+        console.log(this.modalMarkup);
+        this.showModal = true;
+      });
     },
     data() {
       return {
@@ -34,6 +44,8 @@
             fileSource: '../../static/CandHTeaser.pdf',
             buttonText: 'Go!' },
         ],
+        showModal: false,
+        modalMarkup: '',
       };
     },
   };
