@@ -12,6 +12,7 @@
 <script>
   import SingleCard from './single_card';
   import Modal from './modal';
+  import SeedData from './seed_data';
 
   export default {
     components: {
@@ -21,29 +22,12 @@
     created() {
       this.$root.$on('open', (markup) => {
         this.modalMarkup = markup;
-        console.log(this.modalMarkup);
         this.showModal = true;
       });
     },
     data() {
       return {
-        cards: [
-          { title: 'Buy Me!!',
-            description: "It's so good!",
-            buttonText: 'Buy!' },
-          { title: 'Watch Me!!',
-            description: 'A great video',
-            videoSource: 'https://www.youtube.com/embed/RUCN4Q3egmw',
-            buttonText: 'Watch!' },
-          { title: 'Go to there!!',
-            description: 'A great place to visit',
-            externalLink: 'https://www.youtube.com/embed/RUCN4Q3egmw',
-            buttonText: 'Go!' },
-          { title: 'Read this!',
-            description: 'A great thing to read',
-            fileSource: '../../static/CandHTeaser.pdf',
-            buttonText: 'Go!' },
-        ],
+        cards: SeedData,
         showModal: false,
         modalMarkup: '',
       };

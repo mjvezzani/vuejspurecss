@@ -15,7 +15,7 @@
                             width="560"
                             height="315"
                             frameborder="0"
-                            allow="autoplay; encrypted-media"
+                            allow="encrypted-media"
                             allowfullscreen>
               </iframe>
               <button class="pure-u-1-1 pure-button
