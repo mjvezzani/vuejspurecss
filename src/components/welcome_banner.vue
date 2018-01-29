@@ -7,13 +7,13 @@
       <br/>
       <p class='thin-text'>STAY CONNECTED</p>
       <div class='pure-g'>
-        <div class='pure-u-1-24 margin-right'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12 margin-right'>
           <img class='pure-img' src='../assets/facebook.png'/>
         </div>
-        <div class='pure-u-1-24 margin-right'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12 margin-right'>
           <img class='pure-img' src='../assets/twitter.png'/>
         </div>
-        <div class='pure-u-1-24'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12'>
           <img class='pure-img' src='../assets/insta.png'/>
         </div>
       </div>
