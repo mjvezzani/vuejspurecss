@@ -1,6 +1,6 @@
 <template>
   <div>
-   <modal :markup=modalMarkup v-if="showModal" v-on:close="showModal = false"></modal>
+   <modal :markup=modalMarkup :modalType=modalType v-if="showModal" v-on:close="showModal = false"></modal>
    <ul class='pure-g neg-y'>
       <li v-for="card in cards" class='pure-u-md-1-3 pure-u-sm-1-2 pure-u-1-1'>
         <SingleCard :markup=card></SingleCard>
@@ -20,7 +20,8 @@
       Modal,
     },
     created() {
-      this.$root.$on('open', (markup) => {
+      this.$root.$on('openModal', (type, markup) => {
+        this.modalType = type;
         this.modalMarkup = markup;
         this.showModal = true;
       });
@@ -34,6 +35,7 @@
         cards: SeedData,
         showModal: false,
         modalMarkup: '',
+        modalType: '',
       };
     },
   };

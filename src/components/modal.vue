@@ -2,15 +2,15 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div v-if="markup.type == 'video'" class="modal-container">
+        <div v-if="modalType == 'video'" class="modal-container">
           <Video :markup=markup></Video>
         </div>
 
-        <div v-else-if="markup.type == 'externalLink'" class="modal-container">
+        <div v-else-if="modalType == 'externalLink'" class="modal-container">
           <ExternalLink :markup=markup></ExternalLink>
         </div>
 
-        <div v-else-if="markup.type == 'email'" class="modal-container">
+        <div v-else-if="modalType == 'email'" class="modal-container">
           <Email :markup=markup></Email>
         </div>
       </div>
@@ -24,7 +24,7 @@
   import Email from './modals/email';
 
   export default{
-    props: ['markup'],
+    props: ['markup', 'modalType'],
     components: {
       Video,
       ExternalLink,

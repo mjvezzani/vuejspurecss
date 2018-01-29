@@ -54,11 +54,6 @@
       ScoreCard,
       VideoCard,
     },
-    methods: {
-      openModal(markup) {
-        this.$root.$emit('open', markup);
-      },
-    },
   };
 </script>
 

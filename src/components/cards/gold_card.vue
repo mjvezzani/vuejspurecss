@@ -16,5 +16,11 @@
 <script>
   export default {
     props: ['markup'],
+    methods: {
+      openModal(markup) {
+        markup.externalLink = markup.buttonLink;
+        this.$root.$emit('openModal', 'externalLink', markup);
+      },
+    }
   };
 </script>
