@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Header/>
+    <WelcomeBanner/>
+    <InfoCards/>
   </div>
 </template>
 
 <script>
+  import Header from './header';
+  import WelcomeBanner from './welcome_banner';
+  import InfoCards from './info_cards';
+
   export default {
     name: 'app',
+    components: {
+      Header,
+      WelcomeBanner,
+      InfoCards,
+    },
   };
 </script>
 

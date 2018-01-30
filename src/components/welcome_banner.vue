@@ -7,13 +7,13 @@
       <br/>
       <p class='thin-text'>STAY CONNECTED</p>
       <div class='pure-g'>
-        <div class='pure-u-1-24 margin-right'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12 margin-right'>
           <img class='pure-img' src='../assets/facebook.png'/>
         </div>
-        <div class='pure-u-1-24 margin-right'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12 margin-right'>
           <img class='pure-img' src='../assets/twitter.png'/>
         </div>
-        <div class='pure-u-1-24'>
+        <div class='pure-u-md-1-24 pure-u-sm-1-12'>
           <img class='pure-img' src='../assets/insta.png'/>
         </div>
       </div>
@@ -22,7 +22,8 @@
       </br>
       <p class='thin-text'>A valuable benefit</p>
       <p class='thin-text'>Provided Courtesy of</p>
-      <img class='pure-img background-white' src='../assets/transunion-logo.png' align='right'/>
+      <img class='pure-img background-white margin-bottom' src='../assets/transunion-logo.png' align='right'/>
+      <button v-on:click="openModal('email', {})" class=' pure-u-1-1 pure-button button-dark'><span class="small-text">Need direction?Connect!</span><br/>Financial Wellness Concierge*</button>
     </div>
     <div class='pure-u-2-24'>
     </div>
@@ -31,6 +32,11 @@
 
 <script>
 export default {
+  methods: {
+    openModal(type, markup) {
+      this.$root.$emit('openModal', type, markup);
+    },
+  },
 };
 </script>
 
@@ -51,6 +57,10 @@ export default {
 
   .margin-right {
     margin-right: .5rem;
+  }
+
+  .margin-bottom {
+    margin-bottom: .7rem;
   }
 
   .justify-right {

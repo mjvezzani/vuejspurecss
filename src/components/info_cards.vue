@@ -1,35 +1,44 @@
 <template>
-<div>
-  <ul class='pure-g neg-y'>
-    <li v-for="card in cards" class='pure-u-md-1-3 pure-u-sm-1-2 pure-u-1-1'>
-      <div class='card text-center' v-html="card.html">
-      </div>
-    </li>
-  </ul>
-</div>
+  <div>
+   <modal :markup=modalMarkup :modalType=modalType v-if="showModal" v-on:close="showModal = false"></modal>
+   <ul class='pure-g neg-y'>
+      <li v-for="card in cards" class='pure-u-md-1-3 pure-u-sm-1-2 pure-u-1-1'>
+        <SingleCard :markup=card></SingleCard>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      cards: [
-        { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
-        { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Purchase!</button>' },
-        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-        { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-        { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
-        { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-        { html: '<h3>Buy That!!</h3><p>More lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Purchase!</button>' },
-        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-        { html: '<h3>Avoid Me</h3><p>I\'m a virus</p><button class="button-xsmall pure-button button-dark-blue">Click in Emergency Only</button>' },
-        { html: '<h3>Over Here!!</h3><p>A new Car!!</p><button class="pure-button button-xsmall button-light-blue">Click for chance to win!</button>' },
-        { html: '<h3>Buy Me!!</h3><p>Some lorem ipsum</p><button class="pure-button button-xsmall button-dark-blue">Subscribe!</button>' },
-      ],
-    };
-  },
-};
+  import SingleCard from './single_card';
+  import Modal from './modal';
+  import SeedData from './data/seed_data';
+
+  export default {
+    components: {
+      SingleCard,
+      Modal,
+    },
+    created() {
+      this.$root.$on('openModal', (type, markup) => {
+        this.modalType = type;
+        this.modalMarkup = markup;
+        this.showModal = true;
+      });
+      this.$root.$on('close', () => {
+        this.modalMarkup = '';
+        this.showModal = false;
+      });
+    },
+    data() {
+      return {
+        cards: SeedData,
+        showModal: false,
+        modalMarkup: '',
+        modalType: '',
+      };
+    },
+  };
 </script>
 
 <style>
@@ -53,5 +62,5 @@ export default {
   .neg-y {
     transform: translateY(-5rem);
   }
-  
+ 
 </style>
