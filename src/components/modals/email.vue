@@ -7,6 +7,8 @@
             <legend>Email us!</legend>
 
             <input id="name" type="text" placeholder="Your Name" v-model="name">
+            <input id="phone" type="tel" placeholder="Your Phone" v-model="phone">
+            <input id="sponsor" type="text" placeholder="Your Name" v-model="sponsor">
 
             <input id="email" type="email" placeholder="Your Email" v-model="email">
             <textarea type="text" rows="9" cols="30" placeholder="Your Message" v-model="message"></textarea>
@@ -29,13 +31,15 @@
 </template>
 
 <script>
-//  import axios from 'axios';
+  import axios from 'axios';
 
   export default{
     data() {
       return {
         name: '',
         email: '',
+        phone: '',
+        sponsor: '',
         message: '',
       };
     },
@@ -45,15 +49,19 @@
         this.$root.$emit('close');
       },
       sendMessage() {
-//        axios.post('https://welfie.co/api/messages', {
-//          name: this.name,
-//          email: this.email,
-//          content: this.message,
-//        })
-//        .then((resonse) => {})
-//        .catch((e) => {
-//          console.log(e);
-//        });
+        axios.post('https://welfie.co/api/messages', {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          sponsoring_entity: this.sponsor,
+          content: this.message,
+        })
+        .then(() => {
+          this.closeModal();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
       },
     },
   };
